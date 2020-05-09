@@ -4,15 +4,24 @@ import scala.collection.immutable
 import scala.io.Source
 import scala.reflect.internal.util.Collections
 
+
+
+
+//#     Make your code modular and compact to make easily understandable. Currently all code in a single flow and single function.
+
+
+
+
+
 object FinalCpm {
-  
+  //#   Starnge That you have declared so much variable.
   var Activities:List[String]  =  List()
   var Duration:List[String]  =  List()
   var Successor:List[String]  =  List()
-  var Successor1:List[String]  =  List()
+  var Successor1:List[String]  =  List()    //#   Successor was enough then why this series of successor1,2,3...
   var Successor2:List[String]  =  List()
   var Successor3:List[String]  =  List()
-  var Predecessor1:List[String]  =  List()
+  var Predecessor1:List[String]  =  List()    //#   Predecessor was enough then why this series of Predecessor1,2,3...
   var Predecessor2:List[String]  =  List()
   var Predecessor3:List[String]  =  List()
   var Predecessor:List[String]  =  List()
@@ -109,11 +118,13 @@ object FinalCpm {
   def main(args: Array[String]){
   
     val filename = "/home/fariha/dataaa"
-    for (line <- Source.fromFile(filename).getLines) {
+    for (line <- Source.fromFile(filename).getLines) {    //#   This loop can be used during codding to test your import but not in final version as it may waste time.
     println(line)
     }
   
-  var lines = Source.fromFile("/home/fariha/dataaa").getLines.toArray
+  var lines = Source.fromFile("/home/fariha/dataaa").getLines.toArray     //#   why you haven't used filename variable over here that declared earlier
+    
+  //#   There was no need for the following loop. This task can be done using map operation. Avoid loops as much as possible.
   for(i  <-  0 to lines.length -1  ){
       var s  =  lines(i).split(",")
       Activities  =  s(0)::Activities
@@ -127,6 +138,8 @@ object FinalCpm {
       Predecessor3 = s(7) :: Predecessor3
       Predecessor = Predecessor1 ::: Predecessor2 ::: Predecessor3
    }
+    
+    //#   Avoid all following time consuming printouts. So comment these
       println("...........Activities Only......................")
       Activities.foreach(println)
       println("...........duration Only......................")
@@ -150,11 +163,11 @@ object FinalCpm {
        
        //eetList = eetList ++ Array(eet1)
        //eetList :+ eet1 //:+ eet2 :+ eet3
-       eetFinal =  eetList ++ Array(eet1) ++ Array(eet2) ++ Array(eet3)
+       eetFinal =  eetList ++ Array(eet1) ++ Array(eet2) ++ Array(eet3) //#    Unable to understand the purpose of these. Avoid global variables and try to use local variables as much as possible.
        estFinal =  estList ++ Array(est) 
        // println("eettttt " +eetList)
        println("eeeeeeetlist")
-       for (a <- eetFinal ){
+       for (a <- eetFinal ){    //#    Avoid printouts. And anyways this was possible to print using compact foreach
        println(a)
        }
         //println(eetList.mkString(","))
