@@ -9,7 +9,9 @@ import scala.reflect.internal.util.Collections
 
 //#     Make your code modular and compact to make easily understandable. Currently all code in a single flow and single function.
 
+//#     Avoid unnecessary variables
 
+//#     Also upload complete repositories rather 1/2 files
 
 
 
